@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddOrEditBeerComponent } from './components/add-or-edit-beer/add-or-edit-beer.component';
+import { HomeComponent } from './components/home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'new-beer', component: AddOrEditBeerComponent },
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
