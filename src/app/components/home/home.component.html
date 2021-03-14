@@ -42,10 +42,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Chelita sabrosa</td>
-                                        <td>90 ml</td>
-                                        <td>Vidrio</td>
+                                    <tr *ngIf="beers.length < 1">No hay cervezas registradas</tr>
+                                    <tr *ngFor="let beer of beers">
+                                        <td>{{beer.name}}</td>
+                                        <td>{{beer.mL}} ml</td>
+                                        <td>{{beer.container}}</td>
                                         <td>
                                             <button type="button" class="btn btn-outline-primary">
                                                 <i class="fa fa-edit"></i></button>
