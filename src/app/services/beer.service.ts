@@ -26,4 +26,12 @@ export class BeerService {
   saveBeer(beer: BeerI) {
     return this.http.post<BeerI>(`${this.baseUrl}/beers`, beer, this.httpOptions);
   }
+
+  showBeer(id: number) {
+    return this.http.get<BeerI>(`${this.baseUrl}/beers/` + id, this.httpOptions);
+  }
+
+  updateBeer(beer: BeerI) {
+    return this.http.put<BeerI>(`${this.baseUrl}/beers/` + beer.id, beer, this.httpOptions);
+  }
 }
