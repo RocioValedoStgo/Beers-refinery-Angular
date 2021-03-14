@@ -34,4 +34,8 @@ export class BeerService {
   updateBeer(beer: BeerI) {
     return this.http.put<BeerI>(`${this.baseUrl}/beers/` + beer.id, beer, this.httpOptions);
   }
+
+  destroyBeer(id: number) {
+    return this.http.delete<BeerI>(`${this.baseUrl}/beers/` + id, this.httpOptions);
+  }
 }

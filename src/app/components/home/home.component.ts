@@ -26,4 +26,14 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
+
+  delete(id: number) {
+    this.beerService.destroyBeer(id).subscribe(response => {
+      console.log(response);
+      this.getBeers();
+      alert('Cerveza con ID: ' + id + ' ha sido eliminada');
+    }, error => {
+      console.log(error);
+    });
+  }
 }
