@@ -8,7 +8,7 @@
                             <div class="au-breadcrumb-left">
                                 <ul class="list-unstyled list-inline au-breadcrumb__list">
                                     <li class="list-inline-item active">
-                                        <a [routerLink]="['/home']">Home</a>
+                                        <a [routerLink]="['/']">Home</a>
                                     </li>
                                     <li class="list-inline-item seprate">
                                         <span>/</span>
@@ -42,16 +42,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Chelita sabrosa</td>
-                                        <td>90 ml</td>
-                                        <td>Vidrio</td>
+                                    <tr *ngIf="beers.length < 1">No hay cervezas registradas</tr>
+                                    <tr *ngFor="let beer of beers">
+                                        <td>{{beer.name}}</td>
+                                        <td>{{beer.mL}} ml</td>
+                                        <td>{{beer.container}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-outline-primary">
-                                                <i class="fa fa-edit"></i></button>
+                                            <a type="button" type="button" class="btn btn-outline-primary"
+                                                [routerLink]="['/edit-beer', beer.id]" routerLinkActive="router-link-active">
+                                                <i class="fa fa-edit"></i></a>
                                             &nbsp;
-                                            <button type="button" class="btn btn-outline-danger">
-                                                <i class="fa fa-trash"></i></button>
+                                            <a type="button" class="btn btn-outline-danger" (click)="delete(beer.id)">
+                                                <i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
