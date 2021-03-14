@@ -22,7 +22,6 @@ export class EditBeerComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.beerService.showBeer(this.id).subscribe(response => {
-      console.log(response);
       this.beer = response;
     }, error => {
       console.log(error);
