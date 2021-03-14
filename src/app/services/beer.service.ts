@@ -22,4 +22,8 @@ export class BeerService {
   indexBeers() {
     return this.http.get<BeerI>(`${this.baseUrl}/beers`, this.httpOptions);
   }
+
+  saveBeer(beer: BeerI) {
+    return this.http.post<BeerI>(`${this.baseUrl}/beers`, beer, this.httpOptions);
+  }
 }

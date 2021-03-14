@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AddOrEditBeerComponent } from './components/add-or-edit-beer/add-or-edit-beer.component';
+import { NewBeerComponent } from './components/new-beer/new-beer.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import { AddOrEditBeerComponent } from './components/add-or-edit-beer/add-or-edi
     HomeComponent,
     FooterComponent,
     NavbarComponent,
-    AddOrEditBeerComponent,
+    NewBeerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
