@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerI } from 'src/app/interfaces/beer';
 import { BeerService } from 'src/app/services/beer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,10 @@ export class HomeComponent implements OnInit {
     this.beerService.destroyBeer(id).subscribe(response => {
       console.log(response);
       this.getBeers();
-      alert('Cerveza con ID: ' + id + ' ha sido eliminada');
+      Swal.fire({
+        icon: 'success',
+        title: 'Cerveza con ID: ' + id + ' ha sido eliminada',
+      });
     }, error => {
       console.log(error);
     });

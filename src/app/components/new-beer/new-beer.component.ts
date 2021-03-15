@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BeerI } from 'src/app/interfaces/beer';
 import { BeerService } from 'src/app/services/beer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-beer',
@@ -22,7 +23,10 @@ export class NewBeerComponent implements OnInit {
 
   save() {
     this.beerService.saveBeer(this.beer).subscribe(response => {
-      alert('Cerveza ' + this.beer.name + ' registrada con exito!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Cerveza ' + this.beer.name + ' registrada con exito!',
+      });
       this.router.navigateByUrl('/');
     }, error => {
       console.log(error);

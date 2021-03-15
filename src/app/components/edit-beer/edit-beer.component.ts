@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BeerI } from 'src/app/interfaces/beer';
 import { BeerService } from 'src/app/services/beer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-beer',
@@ -30,7 +31,10 @@ export class EditBeerComponent implements OnInit {
 
   update() {
     this.beerService.updateBeer(this.beer).subscribe(response => {
-      alert('Cerveza ' + this.beer.name + ' actualizada con exito!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Cerveza ' + this.beer.name + ' actualizada con exito!',
+      });
       this.router.navigateByUrl('/');
     }, error => {
       console.log(error);
